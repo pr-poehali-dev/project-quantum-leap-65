@@ -1,0 +1,46 @@
+{
+  "tests": [
+    {
+      "name": "Get messages",
+      "method": "GET",
+      "path": "/?action=messages&channel_id=3&after=0",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get servers",
+      "method": "GET",
+      "path": "/?action=servers",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get users",
+      "method": "GET",
+      "path": "/?action=users",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Search users",
+      "method": "GET",
+      "path": "/?action=search&q=maria",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get channels",
+      "method": "GET",
+      "path": "/?action=channels&server_id=1",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get members",
+      "method": "GET",
+      "path": "/?action=members&server_id=1",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    }
+  ]
+}
