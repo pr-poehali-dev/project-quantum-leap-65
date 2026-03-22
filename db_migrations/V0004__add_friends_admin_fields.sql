@@ -1,0 +1,16 @@
+ALTER TABLE ig_users ADD COLUMN IF NOT EXISTS is_admin BOOLEAN DEFAULT FALSE;
+ALTER TABLE ig_users ADD COLUMN IF NOT EXISTS is_banned BOOLEAN DEFAULT FALSE;
+ALTER TABLE ig_users ADD COLUMN IF NOT EXISTS is_muted BOOLEAN DEFAULT FALSE;
+ALTER TABLE ig_users ADD COLUMN IF NOT EXISTS ban_reason VARCHAR(256) DEFAULT '';
+ALTER TABLE ig_users ADD COLUMN IF NOT EXISTS unique_tag VARCHAR(32) DEFAULT '';
+
+CREATE TABLE IF NOT EXISTS ig_friends (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES ig_users(id),
+  friend_id INT REFERENCES ig_users(id),
+  status VARCHAR(16) DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(user_id, friend_id)
+);
+
+UPDATE ig_users SET is_admin = TRUE WHERE username = 'inkogram_bot';

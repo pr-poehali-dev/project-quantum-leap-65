@@ -41,6 +41,20 @@
       "path": "/?action=members&server_id=1",
       "expectedStatus": 200,
       "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get friends",
+      "method": "GET",
+      "path": "/?action=friends&user_id=2",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get admin users",
+      "method": "GET",
+      "path": "/?action=admin_users&admin_id=1",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
     }
   ]
 }
